@@ -21,6 +21,8 @@ namespace MyNewBank
             accountNumberSeed++;
         }
 
+        private List<Transaction> allTransactions = new List<Transaction>();
+
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
 
