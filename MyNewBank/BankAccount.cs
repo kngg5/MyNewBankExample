@@ -10,13 +10,21 @@ namespace MyNewBank
     {
         public string Number { get; }
         public string Owner { get; set; }
-        public decimal Balance { get; }
+        public decimal Balance {
+            get{
+                decimal balance = 0;
+                foreach (var item in allTransactions)
+                {
+                    balance += item.Amount;
+                }
+                return balance;
+            } 
+        }
         private static int accountNumberSeed = 123456789;
 
         public BankAccount(string name, decimal initialBalance)
         {
             this.Owner = name;
-            this.Balance = initialBalance;
             this.Number = accountNumberSeed.ToString();
             accountNumberSeed++;
         }
